@@ -17,7 +17,16 @@ export const Recipe = () => {
     {error && <p className='error'>{error}</p>}
     {isPending && <p className='loading'>Loading...</p>}
     {
-      recipe && <h1>{recipe.title}</h1>
+      recipe && (
+        <>
+        <h2 className='page-title'>{recipe.title}</h2>
+        <p>Takes {recipe.cookingTime} to cook.</p>
+        <ul>
+          {recipe.ingredients.map((ing) => <li key={ing}>{ing}</li>)}
+        </ul>
+        <p className='method'>{recipe.method}</p>
+        </>
+      )
     }
   </div>
   )
